@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .frame{
+            width: 400px;
+            height: 400px;
+            background-color: #f7f7f7;
+            box-shadow: 2px 3px 4px rgba(0,0,0,0.3);
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .center{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+        }
+
+        div{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="frame">
+    <div class="center">
+        <h1>Tip Calculator</h1>
+        <p class="total">$$$</p>
+        <div>
+            <p>Bill Amount:</p>
+            <input type="text" class="bill">
+        </div>
+        <div>
+            <p>Tip %:</p>
+            <input type="text" class="tip">
+        </div>
+        <button class="btn">Calculate</button>
+    </div>
+</div>
+<script src="app.js">
+    let billAmount = document.querySelector('.bill');
+let tipPercent = document.querySelector('.tip');
+let btn = document.querySelector('.btn');
+let para = document.querySelector('.total');
+
+
+btn.addEventListener('click', () => {
+let tipAmount = Number(billAmount.value) * Number(tipPercent.value / 100);
+let billTotal = (Number(tipAmount.toFixed(2)) + Number(billAmount.value)).toFixed(2);
+para.innerText = `Tip Amount: $${tipAmount.toFixed(2)} Total Bill: $${billTotal}`;
+});
+</script>
+
+</body>
+</html>
